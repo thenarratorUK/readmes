@@ -41,7 +41,9 @@ Depending on the uploaded file, Converter can produce:
 
 The EPUB output is a practical EPUB 3 package. It is designed to preserve the main text flow and common inline formatting, not to recreate every detail of a source layout.
 
-DOCX headings may be used to split EPUB content into chapters. If the source document has inconsistent heading styles, chapter splitting may be less predictable.
+DOCX headings are used to split EPUB content into chapters. Converter also recognises common chapter-heading text such as `Chapter 1`, `Chapter One`, `Prologue`, `Epilogue`, and short formatted numeric or roman-numeral headings.
+
+If the source document has inconsistent heading styles or unusual chapter titles, chapter splitting may still need checking afterwards.
 
 ## PDF Notes
 
@@ -63,4 +65,3 @@ Converter processes uploaded files for the conversion task. Do not upload files 
 - Converter is not OCR software for image-only PDFs unless the deployment environment provides compatible OCR tooling.
 - It is not a substitute for manual proofreading after conversion.
 - EPUB validation should be performed separately if the file will be distributed commercially.
-
