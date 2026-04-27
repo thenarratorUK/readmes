@@ -1,67 +1,82 @@
 # Converter
 
-Converter is a Streamlit app for converting manuscript files between PDF, DOCX, and EPUB formats.
+Converter turns manuscript files into more useful working formats. It can convert PDF to DOCX, DOCX to EPUB, or PDF to DOCX and then EPUB.
 
-It is intended as a practical utility for preparing text files for narration, review, or ebook workflows.
+Use it when you need an editable manuscript, a rough EPUB, or a cleaner file to prepare for another workflow.
 
-## What It Does
+## Quick Start
 
-- Convert PDF files to DOCX.
-- Convert DOCX files to EPUB.
-- Convert PDF files to DOCX and then optionally to EPUB.
-- Preserve common text styling where possible, including bold and italics.
-- Add EPUB metadata such as title and author.
-- Optionally include an EPUB cover image.
+1. Upload a PDF or DOCX file.
+2. If you want an EPUB, enter the title and author.
+3. Add a cover image if you want one.
+4. Click `Convert`.
+5. Download every output file you need before closing the page.
 
-## Supported Inputs
+## What You Can Upload
 
 Converter accepts:
 
-- `.pdf`
-- `.docx`
+- PDF files
+- DOCX files
 
-For EPUB covers, supported image uploads depend on the browser and Streamlit environment, but common image formats such as PNG and JPEG are expected.
+For EPUB covers, use a normal image file such as PNG or JPEG.
 
-## Basic Workflow
+## What You Can Download
 
-1. Upload a PDF or DOCX file.
-2. If creating an EPUB, enter the title and author.
-3. Optionally upload a cover image.
-4. Download the generated DOCX and/or EPUB.
+Depending on what you upload, Converter can produce:
 
-## Outputs
+- a DOCX made from a PDF
+- an EPUB made from a DOCX
+- an EPUB made after first converting a PDF to DOCX
 
-Depending on the uploaded file, Converter can produce:
+If you upload a PDF and need both an editable document and an EPUB, download both outputs.
 
-- A DOCX file converted from PDF.
-- An EPUB file converted from DOCX.
-- An EPUB file generated after converting a PDF to DOCX.
+## PDF To DOCX: What To Expect
 
-## EPUB Notes
+PDF conversion is useful, but it is never magic. A PDF is built around page layout, not clean document structure, so the converted DOCX may need manual tidying.
 
-The EPUB output is a practical EPUB 3 package. It is designed to preserve the main text flow and common inline formatting, not to recreate every detail of a source layout.
+Check especially for:
 
-DOCX headings are used to split EPUB content into chapters. Converter also recognises common chapter-heading text such as `Chapter 1`, `Chapter One`, `Prologue`, `Epilogue`, and short formatted numeric or roman-numeral headings.
+- chapter headings
+- headers and footers
+- page numbers
+- drop caps
+- tables
+- odd spacing
+- unusual fonts
+- scanned or image-only pages
 
-If the source document has inconsistent heading styles or unusual chapter titles, chapter splitting may still need checking afterwards.
+If the PDF is only scanned images, conversion may fail or produce very little usable text unless the server has suitable OCR support.
 
-## PDF Notes
+## DOCX To EPUB: What To Expect
 
-PDF conversion is inherently imperfect because PDF is a layout format rather than a document structure format. Converter aims to produce an editable DOCX, but manual cleanup may still be needed, especially for:
+The EPUB output is a practical EPUB 3 file. It aims to preserve the main text flow, plus common inline formatting such as bold and italics.
 
-- Complex page layouts
-- Headers and footers
-- Drop caps
-- Tables
-- Scanned or image-only PDFs
-- Unusual fonts or spacing
+Chapter splitting works best when the DOCX uses clear headings. Converter also recognises common chapter labels such as:
 
-## Privacy Notes
+- `Chapter 1`
+- `Chapter One`
+- `Prologue`
+- `Epilogue`
+- short numbered headings
+- short roman-numeral headings
 
-Converter processes uploaded files for the conversion task. Do not upload files unless you have the right to process them.
+Always open and check the EPUB afterwards, especially if the manuscript has unusual chapter titles or inconsistent styles.
 
-## Limitations
+## Safe Working Habit
 
-- Converter is not OCR software for image-only PDFs unless the deployment environment provides compatible OCR tooling.
-- It is not a substitute for manual proofreading after conversion.
-- EPUB validation should be performed separately if the file will be distributed commercially.
+1. Keep the original file.
+2. Download the converted file.
+3. Open the converted file and check it.
+4. Only use the converted file once you are happy it has not lost anything important.
+
+## If Something Goes Wrong
+
+- If PDF conversion fails, try opening the PDF locally and checking whether the text can be selected.
+- If the DOCX looks messy, clean the DOCX manually before making an EPUB.
+- If chapters split badly, fix the heading styles in the DOCX and convert again.
+- If the EPUB cover does not appear, try a PNG or JPEG with a simple filename.
+
+## What Converter Is Not
+
+Converter is not a final proofreading tool, layout designer, or commercial EPUB validator. Treat its output as a useful working file that still deserves a human check.

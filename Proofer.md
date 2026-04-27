@@ -1,66 +1,82 @@
 # Proofer
 
-Proofer is a Streamlit app for audio proofing.
+Proofer helps you listen through audio, mark problems at timestamps, and download those notes for editing.
 
-It lets you upload audio, listen through it, log issues at precise timestamps, and export timestamped notes for use in editing workflows.
+Use it when you need a practical pickup list, proofing log, or Reaper marker file.
 
-## What It Does
-
-- Upload one or more audio files.
-- Play audio in the browser.
-- Log issues at the current playback time.
-- Add labels and notes to each logged issue.
-- Review and edit the issue log.
-- Export a Reaper marker CSV.
-- Export raw log data as CSV.
-- Export per-file marker CSVs in a ZIP when multiple audio files are used.
-
-## Supported Audio
-
-Proofer is designed for common browser-playable audio files, including:
-
-- MP3
-- WAV
-
-Browser and deployment support may affect which formats can be played.
-
-## Basic Workflow
+## Quick Start
 
 1. Enter a user key.
 2. Upload one or more audio files.
-3. Select the active audio file.
-4. Play the audio.
-5. When you hear an issue, log it with a label and note.
-6. Review or edit the logged issues.
-7. Download the Reaper CSV or raw log CSV.
+3. Choose the file you want to play.
+4. Press play.
+5. When you hear an issue, choose or enter a label, add a note, and log it.
+6. Review the logged issues.
+7. Download the Reaper CSV, Reaper ZIP, or raw log CSV before closing the page.
 
-## Export Formats
+## Audio Files
 
-### Reaper CSV
+Proofer is designed for browser-playable audio. MP3 and WAV are the safest choices.
 
-The Reaper CSV is designed for marker-style editing workflows. Each logged issue is exported with timestamp information so it can be brought into Reaper as a practical pickup or proofing reference.
+If a file will not play:
 
-When a single audio file has logged issues, Proofer exports one CSV.
+- try MP3 or WAV
+- avoid unusual characters in the filename
+- try a different browser
+- check that the upload finished before pressing play
 
-When multiple audio files have logged issues, Proofer exports a ZIP containing one CSV per audio file.
+## Logging Issues
 
-### Raw Log CSV
+When you log an issue, Proofer records:
 
-The raw log CSV includes the detailed app log fields, including audio filename, seconds, timecode, label, note, and logging time.
+- the audio file
+- the playback time
+- the timecode
+- the label
+- your note
+- when the issue was logged
 
-## Progress
+The timestamp comes from the browser audio player, so it is only as accurate as the playback position reported at the moment you click.
 
-Proofer can restore the log, uploaded audio catalogue, and last-played reminder for the same user key for a short resume window after use.
+## Reviewing The Log
 
-This is intended for brief interruptions rather than long-term archival storage.
+After logging, check the table before exporting.
 
-## Privacy Notes
+You can edit issue details, remove mistakes, undo the last entry, or clear the whole log if you need to start again.
 
-Only upload audio you have the right to process. Proofer is intended as a practical proofing tool, not a permanent storage system.
+## Downloads
 
-## Limitations
+Proofer can download:
 
-- Browser playback behaviour can vary by file type and device.
-- Exported timestamps depend on the playback time reported by the audio player.
-- Proofer does not edit the audio itself; it creates proofing notes and marker exports.
+- a Reaper CSV when one audio file has logged issues
+- a Reaper ZIP when multiple audio files have logged issues
+- a raw log CSV with the detailed proofing data
 
+Use the Reaper export for marker-style editing. Use the raw log CSV if you want a plain record you can open in a spreadsheet.
+
+## Saving And Returning
+
+Proofer can briefly restore your log, uploaded audio list, and last-played reminder if you return with the same user key.
+
+Treat that as short-term convenience only. For safety, download the relevant CSV or ZIP before you stop working.
+
+## Safe Working Habit
+
+1. Upload the audio.
+2. Log a few test issues.
+3. Download a test CSV.
+4. Confirm it opens as expected.
+5. Continue the full proof.
+6. Download the final export before closing the page.
+
+## If Something Goes Wrong
+
+- If the audio does not play, try MP3 or WAV.
+- If a timestamp looks off, replay that section and adjust the logged issue.
+- If you uploaded several files, make sure the correct file is selected before logging.
+- If you need Reaper markers for several files, use the Reaper ZIP download.
+- If you are worried about losing work, download the raw log CSV immediately.
+
+## What Proofer Is Not
+
+Proofer does not edit audio. It creates timestamped notes and marker exports so the editing work is easier to find.

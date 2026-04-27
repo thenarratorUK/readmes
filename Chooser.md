@@ -1,22 +1,22 @@
 # Chooser
 
-Chooser is a Streamlit app for blind audio take comparison.
+Chooser helps you compare several audio takes without being swayed by filenames or upload order. It plays two takes at a time, asks which one you prefer, and builds a ranking from your choices.
 
-It is built for situations where you have several takes of the same line and want a structured way to decide which read is strongest without being biased by filenames, order, or memory.
+Use it when you have a few reads of the same line and want a clear winner.
 
-## What It Does
+## Quick Start
 
-- Upload multiple audio takes directly, or upload a ZIP archive.
-- Compare takes blind, two at a time.
-- Record the preferred take for each comparison.
-- Rank takes per line using comparison results and tie-break logic.
-- Delete unusable takes during review.
-- Save and restore progress with a user key.
-- Export all progress as a JSON backup.
+1. Enter a user key you will recognise later.
+2. Upload your audio files, or upload a ZIP containing the files.
+3. Choose the line or group you want to compare.
+4. Listen to A and B.
+5. Click `Prefer A` or `Prefer B`.
+6. Keep going until the ranking is complete.
+7. Download the JSON progress backup before you close the page.
 
-## Upload Formats
+## Naming Your Files
 
-Preferred filename format:
+The cleanest filename format is:
 
 ```text
 LineKey.takeNumber.ext
@@ -28,44 +28,57 @@ Example:
 Line1.6.mp3
 ```
 
-Supported audio formats include:
+That tells Chooser that this is take 6 for `Line1`.
 
-- MP3
-- WAV
-- M4A
-- AAC
-- OGG
-- FLAC
+Supported audio formats include MP3, WAV, M4A, AAC, OGG, and FLAC, although browser playback can vary by device.
 
-If uploaded files do not use the preferred filename format, Chooser treats the uploaded files as one blind comparison group. This is useful when you simply want to compare a batch of arbitrary takes against each other.
+If the filenames do not match the expected format, Chooser will put all uploaded files into one blind comparison group. That is fine if you simply want to compare a loose batch of takes.
 
-## Basic Workflow
+## Uploading A ZIP
 
-1. Enter a user key.
-2. Upload audio files or a ZIP archive.
-3. Choose the line/group to compare.
-4. Listen to A and B without filename context.
-5. Choose the preferred take.
-6. Continue until the line is complete, or stop early when a clear leader cannot be overtaken.
-7. Download the JSON progress backup when needed.
+ZIP uploads are useful when you have lots of files.
 
-## Progress
+Before uploading:
 
-Chooser can restore saved progress for the same user key for a short resume window after use. For longer-term safety, use the JSON download and import tools.
+- Put only the audio takes you want to compare in the ZIP.
+- Avoid nested folders if you can.
+- Use the same `LineKey.takeNumber.ext` pattern where possible.
 
-The JSON backup stores comparison progress and ranking data. It does not replace the original audio files; to continue a restored comparison, upload the corresponding audio again.
+If the ZIP is too large, contains too many files, or contains no supported audio, Chooser will stop and show an error instead of trying to process it badly.
 
-## Outputs
+## Saving And Restoring Progress
 
-Chooser provides:
+Chooser can briefly remember progress for the same user key, but you should not rely on that as your only backup.
 
-- On-screen ranking per line/group.
-- A downloadable JSON file containing all comparison progress.
+The safer habit is:
 
-## Notes And Limitations
+1. Download `Download all progress (JSON)` whenever you have made useful progress.
+2. Keep the original audio files as well.
+3. To restore later, upload the JSON backup first, then upload the matching audio files again.
 
-- Chooser is a listening and ranking tool, not an audio editor.
-- It does not alter the uploaded audio files.
-- The quality of the ranking depends on the comparisons made.
-- If filenames are inconsistent, Chooser deliberately falls back to treating the upload as a single comparison group.
+The JSON backup stores your comparison results and rankings. It does not contain the audio itself.
 
+## Deleting Bad Takes
+
+Use `Delete A` or `Delete B` when a take is unusable and should be removed from that line's comparison.
+
+This affects the current Chooser session and progress backup. It does not delete the original file from your computer.
+
+## What You Get
+
+Chooser gives you:
+
+- an on-screen ranking for each line or group
+- tie-break ranking where needed
+- a JSON backup of all comparison progress
+
+## If Something Looks Wrong
+
+- If everything appears as one group, check the filenames.
+- If restored progress appears but audio does not play, upload the matching audio files again.
+- If the browser will not play a file, try MP3 or WAV.
+- If you are unsure whether progress is safe, download the JSON backup immediately.
+
+## What Chooser Is Not
+
+Chooser is not an audio editor. It does not change, trim, clean, or export audio. It only helps you choose between takes.
